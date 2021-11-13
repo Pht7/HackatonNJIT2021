@@ -7,7 +7,7 @@ export default function Bid(props) {
             <p>{props.animal.type}</p>
             <p>{props.animal.price}</p>
 
-            <input type"text"/>
+            <input type="text"/>
             <button type="button">
                 Bid!
             </button>
