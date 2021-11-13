@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Bid from "./Bid";
-import importImg from "./Gibbon.jpg";
 
     // var admin = require("firebase-admin");
     //
