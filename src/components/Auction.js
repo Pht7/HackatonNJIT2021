@@ -1,5 +1,14 @@
 import React from 'react';
 
+    var admin = require("firebase-admin");
+
+    var serviceAccount = require("../hacknjit2021-firebase-adminsdk-dcz1m-53e3a25ff7.json");
+
+    admin.initializeApp({
+      credential: admin.credential.cert(serviceAccount),
+      databaseURL: "https://hacknjit2021-default-rtdb.firebaseio.com"
+    });
+
 export default function Auction() {
     const animal_one = {"type":"Monke", "price":"$39", "photo_url":"./sample_photo.jpg"};
     const animal_two = {"type":"Horse", "price":"$39", "photo_url":"./sample_photo.jpg"};
