@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Bid from "./Bid";
 
     var admin = require("firebase-admin");
 
@@ -14,6 +15,7 @@ export default function Auction() {
     const animal_two = {"type":"Horse", "price":"$39", "photo_url":"./sample_photo.jpg"};
     const animal_three = {"type":"Sheep", "price":"$39", "photo_url":"./sample_photo.jpg"};
     const animal_list = [animal_one, animal_two, animal_three];
+    const [bid, setBid] = useState(false);
 
 
     function animals(animal) {
@@ -22,7 +24,10 @@ export default function Auction() {
                 <p> {animal.photo_url}</p>
                 <p><b> {animal.type} </b></p>
                 <p> {animal.price}</p>
-                <p> Bid now! </p>
+                <button type="button" onClick={() => setBid(true)}>
+                    Bid now!
+                </button>
+
             </div>
         )
     }
