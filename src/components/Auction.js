@@ -1,4 +1,6 @@
 import React from 'react';
+import {getDatabase} from "firebase-admin/lib/database";
+import {getFirestore} from "firebase-admin/lib/firestore";
 
     var admin = require("firebase-admin");
 
@@ -8,7 +10,9 @@ import React from 'react';
       credential: admin.credential.cert(serviceAccount),
       databaseURL: "https://hacknjit2021-default-rtdb.firebaseio.com"
     });
-
+    const db = getFirestore();
+    const cityRef = db.collection('cities').doc('BJ');
+    console.log(cityRef);
 export default function Auction() {
     const animal_one = {"type":"Monke", "price":"$39", "photo_url":"./sample_photo.jpg"};
     const animal_two = {"type":"Horse", "price":"$39", "photo_url":"./sample_photo.jpg"};
