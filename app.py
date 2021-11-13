@@ -4,7 +4,7 @@ import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import db
 #
-cred = credentials.Certificate('hacknjit2021-firebase-adminsdk-dcz1m-53e3a25ff7.json')
+cred = credentials.Certificate('hacknjit2021.json')
 dbCreate = firebase_admin.initialize_app(cred, {
     'databaseURL': "https://hacknjit2021-default-rtdb.firebaseio.com"
 })
