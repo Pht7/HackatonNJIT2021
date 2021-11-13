@@ -3,6 +3,7 @@ import './App.css';
 import Login from './Login.js';
 import Logout from './Logout.js';
 import Auction from "./components/Auction";
+import AddAnimal from "./components/AddAnimal.js";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Login />
       <Logout />
       <Auction />
+      <AddAnimal />
     </div>
   );
 }
