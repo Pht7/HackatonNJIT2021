@@ -38,5 +38,5 @@ queryItems()
 """
 app.run(
     host=os.getenv('IP', '0.0.0.0'),
-    port=8081 if os.getenv('C9_PORT') else int(os.getenv('PORT', 7777)),
+    port=8081 if os.getenv('C9_PORT') else int(os.getenv('PORT', 8081)),
 )

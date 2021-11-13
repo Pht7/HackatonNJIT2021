@@ -1,6 +1,5 @@
-import React from 'react';
-import {getDatabase} from "firebase-admin/lib/database";
-import {getFirestore} from "firebase-admin/lib/firestore";
+import React, { useState } from 'react';
+import Bid from "./Bid";
 
     var admin = require("firebase-admin");
 
@@ -10,14 +9,14 @@ import {getFirestore} from "firebase-admin/lib/firestore";
       credential: admin.credential.cert(serviceAccount),
       databaseURL: "https://hacknjit2021-default-rtdb.firebaseio.com"
     });
-    const db = getFirestore();
-    const cityRef = db.collection('cities').doc('BJ');
-    console.log(cityRef);
+
 export default function Auction() {
     const animal_one = {"type":"Monke", "price":"$39", "photo_url":"./sample_photo.jpg"};
     const animal_two = {"type":"Horse", "price":"$39", "photo_url":"./sample_photo.jpg"};
     const animal_three = {"type":"Sheep", "price":"$39", "photo_url":"./sample_photo.jpg"};
     const animal_list = [animal_one, animal_two, animal_three];
+    const [bid, setBid] = useState(false);
+    const [animalObject, setAnimalObject] = useState({});
 
 
     function animals(animal) {
@@ -26,18 +25,35 @@ export default function Auction() {
                 <p> {animal.photo_url}</p>
                 <p><b> {animal.type} </b></p>
                 <p> {animal.price}</p>
-                <p> Bid now! </p>
+                <button type="button" onClick={() => {
+                    setBid(true);
+                    setAnimalObject(animal);
+                }}>
+                    Bid now!
+                </button>
             </div>
         )
     }
     return (
-        <body>
+        <div>
             <h1> Meet the animals! </h1>
-            <div className='container'>
-                {animal_list.map((animal) => {
-                    return animals(animal)
-                })}
-            </div>
-        </body>
+            {bid === false ? (
+                <div>
+                    {animal_list.map((animal) => {
+                        return animals(animal)
+                    })}
+                </div>
+            ) : (
+                <Bid animal={animalObject}/>
+            )}
+        </div>
+        // <div>
+        //     <h1> Meet the animals! </h1>
+        //     <div className='container'>
+        //         {animal_list.map((animal) => {
+        //             return animals(animal)
+        //         })}
+        //     </div>
+        // </div>
   );
 }
