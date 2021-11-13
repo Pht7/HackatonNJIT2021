@@ -3,7 +3,7 @@ import Bid from "./Bid";
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { getDatabase, ref, onValue} from "firebase/database";
+import { getDatabase, ref, onValue, set} from "firebase/database";
 import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
 
 const firebaseConfig = {
@@ -30,13 +30,25 @@ function getData(){
     return finalValue;
 }
 
+function writeData(name, species, donation, weight, UUID){
+    const db = getDatabase();
+    set(ref(db, 'testData/' + UUID), {
+        name: name,
+        species: species,
+        donation: donation,
+        weight: weight
+    });
+
+}
+
 
 export default function Auction() {
     //sample data
     //getData();
     console.log("begin Test")
+    writeData("joe","cow","100","50LB", "test3");
     const animal_one = {
-        "type":getData(),
+        "type":"Monke",
         "price":"$39",
         "photo_url":"./sample_photo.jpg",
         "current_owner":"iDonated",
