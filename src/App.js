@@ -10,6 +10,7 @@ function App() {
       <Login />
       <Logout />
       <Auction />
+    </div>
   );
 }
 
