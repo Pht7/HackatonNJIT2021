@@ -1,15 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
+import Auction from './components/Auction';
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <h1> Hello Test</h1>
-      </header>
-        <a href ="google.com"> <button>Hello</button> </a>
-    </div>
-  );
+    return(
+        <Auction/>
+    );
 }
 
 export default App;
