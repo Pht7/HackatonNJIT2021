@@ -38,9 +38,7 @@ function writeData(name, species, donation, weight, UUID){
         donation: donation,
         weight: weight
     });
-
 }
-
 
 export default function Auction() {
     //sample data
@@ -79,10 +77,10 @@ export default function Auction() {
         return(
             <div>
                 <p> {animal.photo_url} </p>
-                <h2> {animal.type} </h2>
+                <h3> {animal.type} </h3>
                 <p> Current Owner: {animal.current_owner} </p>
                 <p> Time Left: {animal.time_left} </p>
-                <p> Current Bid: ${animal.price} </p>
+                <p> Current Bid: {animal.price} </p>
 
                 <button type="button" onClick={() => {
                     setBid(true);
