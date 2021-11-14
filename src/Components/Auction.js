@@ -149,19 +149,18 @@ function Auction() {
     //writeData(75,"Rat Trap Music", "Nemo","pornhub.com","Clownfish",40,"BIGFATTYRATTY")
     function animals(animal) {
         return(
+            <body>
             <div className="animalPost">
-                <div className="animalImage">
-                <img
-                    src={animal.photoLocation}
-                    alt="new"
-                /></div>
-                <ul>
-                {animal.name}
-                {animal.species}
-                Current Owner: {animal.desc}
-                Time Left: {animal.time}
-                Bid: {animal.bid} </ul>
-
+                    <div className="imageCSS">
+                   <img src={animal.photoLocation} height="200px" width="200px" border="1px"/>
+                    </div>
+                    <div className="textAuction">
+                    <p>{animal.name}</p>
+                    <p>{animal.species}</p>
+                    <p>Current Owner: {animal.desc}</p>
+                    <p>Time Left: {animal.time} </p>
+                    <p> Bid: {animal.bid} </p>
+                    </div>
                 <button type="button" onClick={() => {
                     setBid(true);
                     setAnimalObject(animal);
@@ -169,11 +168,13 @@ function Auction() {
                     Bid now!
                 </button>
             </div>
+            </body>
         )
     }
     return (
         <div className="auctionMain">
-            <h1> Meet the animals! </h1>
+            <div class="TitleScreen">
+            <h1> Meet the animals! </h1></div>
 
             {bid === false ? (
                 <div className="rvView">

@@ -5,6 +5,7 @@ html {
 .App {
   text-align: center;
   background-color: #c5cfde;
+  margin-top: 100px;
 }
 #login {
   float:right;
@@ -14,8 +15,9 @@ html {
 }
 
 #navbar{
+  width: 100%;
   display: flex;
-  padding: 0 1rem;
+  padding-left: 50px;
   z-index: 99 !important;
   position: absolute;
   top: 0px;
@@ -23,11 +25,11 @@ html {
 }
 
 .link {
-  border:10px solid;
+  border:1px solid;
+  width: 245px;
+  text-align: center;
   border-image-slice: 1;
-  border-image-source: linear-gradient(to left, #00C853, #B2FF59);
   border-radius: 10px;
-  background-image: linear-gradient(to left, #00C853, #B2FF59);
 }
 
 

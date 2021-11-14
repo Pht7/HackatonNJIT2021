@@ -1,17 +1,26 @@
 .animalPost{
+    margin-top: 15px;
     background-color: lightblue;
-    border-radius: 5px;
-    width: 100%;
-    text-align: center;
+    align-items: center;
+    justify-content: center;
 }
 .auctionMain{
-    text-align: center;
+    padding-top: 50px;
+
 }
-.rvView{
-    text-align: center;
+.imageCSS{
+    flex-basis: 40%;
 }
 img{
-    margin-left: 250px;
-    width: 50px;
-    height: 50px;
+    float: right;
+    width: 750px;
+    height: 255px;
+}
+.textAuction{
+    padding-left: 20px;
+    font-size: 20px;
+    color: wheat;
+}
+.TitleScreen{
+    color: wheat;
 }
