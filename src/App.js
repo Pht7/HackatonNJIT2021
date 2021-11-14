@@ -30,21 +30,31 @@ function App() {
       
 
       <div id = "navbar">
-        <nav>
-          <Link to="/">Home</Link>
-        </nav>
-        <nav>
-          <Link to="animals">Animals</Link>
-        </nav>
-        <nav>
-          <Link to="about">About</Link>
-        </nav>
-        <nav>
-          <Link to="profile">Profile</Link>
-        </nav>
-        <nav>
-          <Link to="rat">Rat</Link>
-        </nav>
+        <div class = "link">
+          <nav>
+            <Link to="/">Home</Link>
+          </nav>
+        </div>
+        <div class = "link">
+          <nav>
+            <Link to="animals">Animals</Link>
+          </nav>
+        </div>
+        <div class = "link">
+          <nav>
+            <Link to="about">About</Link>
+          </nav>
+        </div>
+        <div class = "link">
+          <nav>
+            <Link to="profile">Profile</Link>
+          </nav>
+        </div>
+        <div class = "link">
+          <nav>
+            <Link to="rat">Rat</Link>
+          </nav>
+        </div>
         <Login />
         <Logout />
       </div>
