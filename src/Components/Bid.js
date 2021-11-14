@@ -23,8 +23,7 @@ export default function Bid(props) {
             <p> Current Bid: {props.animal.price}</p>
 
             <input ref={bidRef} type="text"/>
-            <button type="button" onClick={() => onClickBid(bidRef.current.value)}>
-                Bid!
+            <button type="button" onClick={() => onClickBid(bidRef.current.value)}>Bid!
             </button>
         </div>
     );
