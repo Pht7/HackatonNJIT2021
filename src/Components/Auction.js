@@ -146,7 +146,7 @@ function Auction() {
     const [animalObject, setAnimalObject] = useState({});
     //const animal_list = [animal_one, animal_two, animal_three];
     const animal_list = getData();
-    writeData(75,"Rat Trap Music", "Nemo","pornhub.com","Clownfish",40,"BIGFATTYRATTY")
+    //writeData(75,"Rat Trap Music", "Nemo","pornhub.com","Clownfish",40,"BIGFATTYRATTY")
     function animals(animal) {
         return(
             <div className="animalPost">
@@ -155,11 +155,12 @@ function Auction() {
                     src={animal.photoLocation}
                     alt="new"
                 /></div>
-                <p> {animal.name} </p>
-                <p> {animal.species} </p>
-                <p> Current Owner: {animal.desc} </p>
-                <p> Time Left: {animal.time} </p>
-                <p> Bid: {animal.bid} </p>
+                <ul>
+                {animal.name}
+                {animal.species}
+                Current Owner: {animal.desc}
+                Time Left: {animal.time}
+                Bid: {animal.bid} </ul>
 
                 <button type="button" onClick={() => {
                     setBid(true);
