@@ -6,6 +6,7 @@ const clientId = '259200783381-h5nnqnslilen32au2an3qdk328mc3u3j.apps.googleuserc
 function Login() {
     const onSuccess = ( res ) => {
       console.log('[Login Success] currentUser:', res.profileObj);
+      localStorage.setItem('name', res.profileObj.name);
     };
 
     const onFailure = (res ) => {

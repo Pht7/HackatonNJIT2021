@@ -3,7 +3,7 @@ import { initializeApp } from "firebase/app";
 import { getDatabase, ref, onValue, set} from "firebase/database";
 import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
 import './Auction.css'
-
+import Login from './Login.js';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBomGokWVsUMjO3UZ3f8Fw9m8dXuEXuG78",
@@ -36,8 +36,9 @@ function getData(){
     return Object.values(temp);
 }
 
-function Profile() {
+function Profile(profileObj) {
     const animal_list = getData();
+    let name = localStorage.getItem('name');
         function animals(animal) {
         return(
             <body>
@@ -59,7 +60,7 @@ function Profile() {
     return (
         <>
         <div class="top-of-page">
-            <h1>Test Name</h1>
+            <h1>HELLLLLLO {name}HELLLLLLLLO</h1>
             <h2>$ Raised</h2>
             <h3># Animals Helped</h3>
         </div>

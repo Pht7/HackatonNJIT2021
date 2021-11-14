@@ -6,6 +6,7 @@ const clientId = '259200783381-h5nnqnslilen32au2an3qdk328mc3u3j.apps.googleuserc
 function Logout() {
     const onSuccess = () => {
         alert('Logout Successful');
+        localStorage.removeItem('name');
     };
 
     return (
