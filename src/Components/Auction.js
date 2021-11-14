@@ -36,6 +36,7 @@ function getData(){
     console.log("UUU")
     return Object.values(temp);
 }
+
 function getDonation(){
     let uuidList = getData();
     const db = getDatabase();
@@ -89,8 +90,6 @@ function getWeight(){
         console.log(animalList);
     }
         return animalList;
-
-
 }
 function getName(){
     let uuidList = getData();
@@ -126,20 +125,17 @@ function getAllData(){
 }
 
 
-function writeData(name, species, donation, weight, UUID){
-    /*
-    console.log(name);
-    console.log(species);
-    console.log(donation);
-    console.log(weight);
-    console.log(UUID);*/
+
+function writeData(bid, desc, name, photoLocation, species, time, UUID){
     const db = getDatabase();
     console.log("Ping");
     set(ref(db, 'testData/' + UUID), {
+        bid: bid,
+        desc: desc,
         name: name,
+        photoLocation : photoLocation,
         species: species,
-        donation: donation,
-        weight: weight
+        time: time
     });
 
 }
@@ -147,36 +143,18 @@ function writeData(name, species, donation, weight, UUID){
 function Auction() {
     const [bid, setBid] = useState(false);
     const [animalObject, setAnimalObject] = useState({});
-    const animal_one = {
-        "type":"Monke",
-        "price":"$39",
-        "photo_url":"./sample_photo.jpg",
-        "current_owner":"iDonated",
-        "time_left": "21h"
-    };
-    const animal_two = {
-        "type":"Horse",
-        "price":"$39",
-        "photo_url":"./sample_photo.jpg",
-        "current_owner":"Joe",
-        "time_left":"9h"
-    };
-    const animal_three = {
-        "type":"Sheep",
-        "price":"$39",
-        "photo_url":"./sample_photo.jpg",
-        "current_owner":"Bill",
-        "time_left":"12h"
-    };
     //const animal_list = [animal_one, animal_two, animal_three];
     const animal_list = getData();
+    writeData(75,"Rat Trap Music", "Nemo","pornhub.com","Clownfish",40,"BIGFATTYRATTY")
     function animals(animal) {
         return(
             <div>
-                <p> {animal.weight} </p>
-                <h2> {animal.species} </h2>
-                <p> Current Owner: {animal.name} </p>
-                <p> Time Left: {animal.donation} </p>
+                <p> {animal.photoLocation}</p>
+                <p> {animal.name} </p>
+                <p> {animal.species} </p>
+                <p> Current Owner: {animal.desc} </p>
+                <p> Time Left: {animal.time} </p>
+                <p> Bid: {animal.bid} </p>
 
                 <button type="button" onClick={() => {
                     setBid(true);
