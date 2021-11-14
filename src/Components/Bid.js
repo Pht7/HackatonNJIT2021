@@ -48,6 +48,7 @@ export default function Bid(props) {
                console.log("FooBar"))
             }>Bid!
             </button>
+            <a href="./animals"> <button>Go Back </button></a>
         </div>
     );
 }
