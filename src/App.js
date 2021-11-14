@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
-import Login from './Login.js';
-import Logout from './Logout.js';
+import Login from './Components/Login.js';
+import Logout from './Components/Logout.js';
 import Auction from "./Components/Auction";
 import {
   BrowserRouter,
@@ -9,6 +9,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import AddAnimal from './Components/AddAnimal.js';
 
 function App() {
   return (
@@ -45,16 +46,18 @@ function App() {
 function Home() {
   return (
     <div className="App">
-      <br/>
-      <h1>Welcome to Adoptables</h1>
-      <p>This is a website made to raise money for zoos by allowing users to own the animals</p>
+      <h1>This is our app. We need to come up with a name for it</h1>
+      <p>Peter smells</p>
     </div>
   );
 }
 
 function Animals() {
   return (
-    <Auction />
+    <div>
+      <Auction />
+      <AddAnimal />
+    </div>
   )
 }
 
