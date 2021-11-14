@@ -71,19 +71,19 @@ function AddAnimal() {
             <form className="form-container">
 
         <label for="name"><b>Name:</b></label>
-        <input type="text" id="name" name="name" ref={nameRef}></input>
+        <input type="text" id="name" name="name" required ref={nameRef}></input>
 
         <label for="species"><b>Species:</b></label>
-        <input type="text" id="species" name="species" ref={speciesRef}></input>
+        <input type="text" id="species" name="species" required ref={speciesRef}></input>
 
         <label for="weight"><b>Weight:</b></label>
-        <input type="text" id="weight" name="weight" ref={weightRef}></input>
+        <input type="text" id="weight" name="weight" required ref={weightRef}></input>
 
         <label for="description"><b>Description:</b></label>
-        <input type="text" id="description" name="description" ref={descriptionRef}></input>
+        <input type="text" id="description" name="description" required ref={descriptionRef}></input>
 
         <label for="picture"><b>Picture:</b></label>
-        <input type="url" id="picture" name="picture" placeholder="Link:" ref={pictureRef}></input>
+        <input type="url" id="picture" name="picture" placeholder="Link:" required ref={pictureRef}></input>
 
         <button type="button" className="button-submit" onClick={() => {
             writeData("0",descriptionRef.current.value, nameRef.current.value, pictureRef.current.value, speciesRef.current.value,24,nameRef.current.value);
@@ -91,6 +91,11 @@ function AddAnimal() {
             closeForm();
         }}><b>Submit</b></button>
         <button type="button" className="button-cancel" onClick={() => {
+            document.getElementById("name").value = '';
+            document.getElementById("species").value = '';
+            document.getElementById("weight").value = '';
+            document.getElementById("description").value = '';
+            document.getElementById("picture").value = '';
             closeForm();
         }}><b>Close</b></button>
         </form>
