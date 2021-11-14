@@ -58,3 +58,18 @@
   button:hover {
     opacity: 1;
   }
+
+  .button-cancel:hover {
+      opacity: .5;
+  }
+
+  .button-submit:hover {
+    opacity: .5;
+}
+.form-container input[type=file] {
+    width: 75%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+}

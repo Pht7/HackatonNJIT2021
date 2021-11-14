@@ -1,4 +1,5 @@
 import React from 'react';
+import AddAnimal from './AddAnimal';
 
 /* 
 animal
@@ -8,7 +9,11 @@ photo
 */
 
 function ZooProfile() {
+    return (
     <div>
-        
+        <AddAnimal />
     </div>
+    );
 }
+
+export default ZooProfile;
