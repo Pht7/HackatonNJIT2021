@@ -21,17 +21,120 @@ const db = getFirestore(app)
 // Sample get function
 function getData(){
     const db = getDatabase();
-    const dbRef = ref(db, 'testData/'+'animal/'+'name/');
-    let finalValue = ""
+    const dbRef = ref(db, 'testData/');
+    let temp = ""
+    let uuidList = []
     onValue(dbRef, (snapshot) => {
         const data = snapshot.val();
-        finalValue = data;
+        temp = data;
     });
-    return finalValue;
+    for (const test in temp){
+        uuidList.push(test);
+    };
+    console.log("UUU");
+    console.log(Object.values(temp));
+    console.log("UUU")
+    return Object.values(temp);
+}
+function getDonation(){
+    let uuidList = getData();
+    const db = getDatabase();
+    let temp = ""
+    let animalList = [];
+    for (let i =0; i < uuidList.length; i++){
+        let dbRef = ref(db, 'testData/'+ uuidList[i]);
+        onValue(dbRef, (snapshot) => {
+        const data = snapshot.val();
+       // console.log(data);
+        temp = data;
+        animalList.push(temp.donation);
+    });
+    }
+    return animalList;
+
+
 }
 
-function writeData(name, species, donation, weight, UUID){
+function getAnimal(){
+    let uuidList = getData();
     const db = getDatabase();
+    let temp = ""
+    let animalList = [];
+    for (let i =0; i < uuidList.length; i++){
+        let dbRef = ref(db, 'testData/'+ uuidList[i]);
+        onValue(dbRef, (snapshot) => {
+        const data = snapshot.val();
+       // console.log(data);
+        temp = data;
+        animalList.push(temp.species);
+    });
+        console.log(animalList);
+    }
+        return animalList;
+
+}
+function getWeight(){
+    let uuidList = getData();
+    const db = getDatabase();
+    let temp = ""
+    let animalList = [];
+    for (let i =0; i < uuidList.length; i++){
+        let dbRef = ref(db, 'testData/'+ uuidList[i]);
+        onValue(dbRef, (snapshot) => {
+        const data = snapshot.val();
+       // console.log(data);
+        temp = data;
+        animalList.push(temp.weight);
+    });
+        console.log(animalList);
+    }
+        return animalList;
+
+
+}
+function getName(){
+    let uuidList = getData();
+    const db = getDatabase();
+    let temp = ""
+    let animalList = [];
+    for (let i =0; i < uuidList.length; i++){
+        let dbRef = ref(db, 'testData/'+ uuidList[i]);
+        onValue(dbRef, (snapshot) => {
+        const data = snapshot.val();
+       // console.log(data);
+        temp = data;
+        animalList.push(temp.name);
+    });
+        console.log(animalList);
+    }
+        return animalList;
+
+}
+
+
+function getAllData(){
+    const db = getDatabase();
+    let uuidList = [];
+    const dbRef = ref(db, 'testData/' );
+        onValue(dbRef, (snapshot) => {
+        const data = snapshot.val();
+        uuidList.push(data);
+    });
+   // console.log(uuidList);
+
+
+}
+
+
+function writeData(name, species, donation, weight, UUID){
+    /*
+    console.log(name);
+    console.log(species);
+    console.log(donation);
+    console.log(weight);
+    console.log(UUID);*/
+    const db = getDatabase();
+    console.log("Ping");
     set(ref(db, 'testData/' + UUID), {
         name: name,
         species: species,
@@ -44,11 +147,6 @@ function writeData(name, species, donation, weight, UUID){
 function Auction() {
     const [bid, setBid] = useState(false);
     const [animalObject, setAnimalObject] = useState({});
-
-    //sample data
-    //getData();
-    console.log("begin Test")
-    writeData("joe","cow","100","50LB", "test3");
     const animal_one = {
         "type":"Monke",
         "price":"$39",
@@ -70,16 +168,15 @@ function Auction() {
         "current_owner":"Bill",
         "time_left":"12h"
     };
-    const animal_list = [animal_one, animal_two, animal_three];
-
+    //const animal_list = [animal_one, animal_two, animal_three];
+    const animal_list = getData();
     function animals(animal) {
         return(
             <div>
-                <p> {animal.photo_url} </p>
-                <h2> {animal.type} </h2>
-                <p> Current Owner: {animal.current_owner} </p>
-                <p> Time Left: {animal.time_left} </p>
-                <p> Current Bid: {animal.price} </p>
+                <p> {animal.weight} </p>
+                <h2> {animal.species} </h2>
+                <p> Current Owner: {animal.name} </p>
+                <p> Time Left: {animal.donation} </p>
 
                 <button type="button" onClick={() => {
                     setBid(true);
@@ -93,6 +190,7 @@ function Auction() {
     return (
         <div>
             <h1> Meet the animals! </h1>
+
             {bid === false ? (
                 <div>
                     {animal_list.map((animal) => {
