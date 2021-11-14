@@ -15,6 +15,15 @@
   z-index: 99 !important;
   position: absolute;
   top: 0px;
+  background-color: rgb(164, 186, 199);
+}
+
+.link {
+  border:10px solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(to left, #00C853, #B2FF59);
+  border-radius: 10px;
+  background-image: linear-gradient(to left, #00C853, #B2FF59);
 }
 
 
