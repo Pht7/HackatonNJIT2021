@@ -21,17 +21,116 @@ const db = getFirestore(app)
 // Sample get function
 function getData(){
     const db = getDatabase();
-    const dbRef = ref(db, 'testData/'+'animal/'+'name/');
-    let finalValue = ""
+    const dbRef = ref(db, 'testData/');
+    let temp = ""
+    let uuidList = []
     onValue(dbRef, (snapshot) => {
         const data = snapshot.val();
-        finalValue = data;
+        temp = data;
     });
-    return finalValue;
+    for (const test in temp){
+        uuidList.push(test);
+    };
+    return uuidList;
+}
+function getDonation(){
+    let uuidList = getData();
+    const db = getDatabase();
+    let temp = ""
+    let animalList = [];
+    for (let i =0; i < uuidList.length; i++){
+        let dbRef = ref(db, 'testData/'+ uuidList[i]);
+        onValue(dbRef, (snapshot) => {
+        const data = snapshot.val();
+       // console.log(data);
+        temp = data;
+        animalList.push(temp.donation);
+    });
+    }
+    return animalList;
+
+
+}
+
+function getAnimal(){
+    let uuidList = getData();
+    const db = getDatabase();
+    let temp = ""
+    let animalList = [];
+    for (let i =0; i < uuidList.length; i++){
+        let dbRef = ref(db, 'testData/'+ uuidList[i]);
+        onValue(dbRef, (snapshot) => {
+        const data = snapshot.val();
+       // console.log(data);
+        temp = data;
+        animalList.push(temp.species);
+    });
+        console.log(animalList);
+    }
+        return animalList;
+
+}
+function getWeight(){
+    let uuidList = getData();
+    const db = getDatabase();
+    let temp = ""
+    let animalList = [];
+    for (let i =0; i < uuidList.length; i++){
+        let dbRef = ref(db, 'testData/'+ uuidList[i]);
+        onValue(dbRef, (snapshot) => {
+        const data = snapshot.val();
+       // console.log(data);
+        temp = data;
+        animalList.push(temp.weight);
+    });
+        console.log(animalList);
+    }
+        return animalList;
+
+
+}
+function getName(){
+    let uuidList = getData();
+    const db = getDatabase();
+    let temp = ""
+    let animalList = [];
+    for (let i =0; i < uuidList.length; i++){
+        let dbRef = ref(db, 'testData/'+ uuidList[i]);
+        onValue(dbRef, (snapshot) => {
+        const data = snapshot.val();
+       // console.log(data);
+        temp = data;
+        animalList.push(temp.name);
+    });
+        console.log(animalList);
+    }
+        return animalList;
+
+}
+
+
+function getAllData(){
+    const db = getDatabase();
+    let uuidList = [];
+    const dbRef = ref(db, 'testData/' );
+        onValue(dbRef, (snapshot) => {
+        const data = snapshot.val();
+        uuidList.push(data);
+    });
+    console.log(uuidList);
+
+
 }
 
 function writeData(name, species, donation, weight, UUID){
+    /*
+    console.log(name);
+    console.log(species);
+    console.log(donation);
+    console.log(weight);
+    console.log(UUID);*/
     const db = getDatabase();
+    console.log("Ping");
     set(ref(db, 'testData/' + UUID), {
         name: name,
         species: species,
@@ -41,12 +140,24 @@ function writeData(name, species, donation, weight, UUID){
 
 }
 
+function buttonClicked(){
+    //console.log(document.getElementById("nameField").innerHTML);
+    //writeData(document.getElementById('nameField'),document.getElementById('speciesField'),document.getElementById('donationField'),document.getElementById('weightField'),document.getElementById('uuidField'));
+}
 
 export default function Auction() {
-    //sample data
-    //getData();
-    console.log("begin Test")
-    writeData("joe","cow","100","50LB", "test3");
+    console.log("-----")
+    console.log(getDonation());
+
+    console.log(getAnimal());
+    console.log(getWeight());
+    console.log(getName());
+    console.log("-----")
+    getDonation();
+    //console.log(getAnimal());
+    buttonClicked();
+    //console.log("begin Test")
+    writeData("joe","cow","100","50LB", "test6");
     const animal_one = {
         "type":"Monke",
         "price":"$39",
@@ -74,7 +185,7 @@ export default function Auction() {
     const [bid, setBid] = useState(false);
     const [animalObject, setAnimalObject] = useState({});
 
-
+    const [input, setInput] = useState(''); // '' is the initial state value
     function animals(animal) {
         return(
             <div>
@@ -93,6 +204,7 @@ export default function Auction() {
             </div>
         )
     }
+    let textInput = React.createRef()
     return (
         <div>
             <h1> Meet the animals! </h1>
