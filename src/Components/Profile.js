@@ -38,7 +38,7 @@ function getData(){
 
 function Profile(profileObj) {
     const animal_list = getData();
-    const profile = Login();
+    let name = localStorage.getItem('name');
         function animals(animal) {
         return(
             <body>
@@ -60,7 +60,7 @@ function Profile(profileObj) {
     return (
         <>
         <div class="top-of-page">
-            <h1>HELLLLLLO {profile.name}HELLLLLLLLO</h1>
+            <h1>HELLLLLLO {name}HELLLLLLLLO</h1>
             <h2>$ Raised</h2>
             <h3># Animals Helped</h3>
         </div>
