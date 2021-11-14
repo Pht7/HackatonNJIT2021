@@ -5,6 +5,7 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getDatabase, ref, onValue, set} from "firebase/database";
 import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
+import './Auction.css'
 
 const firebaseConfig = {
   apiKey: "AIzaSyBomGokWVsUMjO3UZ3f8Fw9m8dXuEXuG78",
@@ -148,8 +149,12 @@ function Auction() {
     writeData(75,"Rat Trap Music", "Nemo","pornhub.com","Clownfish",40,"BIGFATTYRATTY")
     function animals(animal) {
         return(
-            <div>
-                <p> {animal.photoLocation}</p>
+            <div className="animalPost">
+                <div className="animalImage">
+                <img
+                    src={animal.photoLocation}
+                    alt="new"
+                /></div>
                 <p> {animal.name} </p>
                 <p> {animal.species} </p>
                 <p> Current Owner: {animal.desc} </p>
@@ -166,11 +171,11 @@ function Auction() {
         )
     }
     return (
-        <div>
+        <div className="auctionMain">
             <h1> Meet the animals! </h1>
 
             {bid === false ? (
-                <div>
+                <div className="rvView">
                     {animal_list.map((animal) => {
                         return animals(animal)
                     })}
