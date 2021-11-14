@@ -32,16 +32,20 @@ function getData(){
     return finalValue;
 }
 
-function writeData(name, species, donation, weight, UUID){
+function writeData(bid, desc, name, photoLocation, species, time, UUID){
     const db = getDatabase();
+    console.log("Ping");
     set(ref(db, 'testData/' + UUID), {
+        bid: bid,
+        desc: desc,
         name: name,
+        photoLocation : photoLocation,
         species: species,
-        donation: donation,
-        weight: weight
+        time: time
     });
 
 }
+
 function openForm() {
     document.getElementById("myForm").style.display = "block";
 }
@@ -80,7 +84,7 @@ function AddAnimal() {
         <input type="file" id="picture" name="picture" ref={pictureRef}></input>
 
         <button type="button" className="button-submit" onClick={() => {
-            writeData(nameRef.current.value, speciesRef.current.value, "0", weightRef.current.value, "12345");
+            writeData("0",descriptionRef.current.value, nameRef.current.value, pictureRef.current.value, speciesRef.current.value,24,nameRef.current.value);
         }}><b>Submit</b></button>
         <button type="button" className="button-cancel" onClick={() => {
             closeForm();
