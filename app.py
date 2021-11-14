@@ -11,16 +11,16 @@ dbCreate = firebase_admin.initialize_app(cred, {
 
 print(dbCreate.name)
 ref = db.reference('/')
-ref.set({
-    'testData':
-        {
-            'animal':{
-                'name':'nemo',
-                'species':'clownfish',
-                'weight':30
-            }
-        }
-})
+# ref.set({
+#     'testData':
+#         {
+#             'animal':{
+#                 'name':'nemo',
+#                 'species':'clownfish',
+#                 'weight':30
+#             }
+#         }
+# })
 #animals
 
 app = Flask(__name__, static_folder='./build/static')

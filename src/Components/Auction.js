@@ -152,7 +152,7 @@ function Auction() {
             <body>
             <div className="animalPost">
                     <div className="imageCSS">
-                   <img src={animal.photoLocation} height="200px" width="200px" border="1px"/>
+                        <img src={animal.photoLocation} />
                     </div>
                     <div className="textAuction">
                     <p>{animal.name}</p>
