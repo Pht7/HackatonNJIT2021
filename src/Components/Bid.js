@@ -11,7 +11,6 @@ export default function Bid(props) {
         }
         setHighestBid(bid);
         alert("Bid placed, thank you!");
-        alert(highestBid);
     }
 
     return (
