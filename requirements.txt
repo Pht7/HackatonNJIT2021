@@ -1,4 +1,3 @@
 Flask
 firebase
-react-google-login
 firebase-admin
