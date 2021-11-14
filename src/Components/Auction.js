@@ -41,7 +41,6 @@ function writeData(name, species, donation, weight, UUID){
 
 }
 
-
 function Auction() {
     const [bid, setBid] = useState(false);
     const [animalObject, setAnimalObject] = useState({});
@@ -80,7 +79,7 @@ function Auction() {
                 <h2> {animal.type} </h2>
                 <p> Current Owner: {animal.current_owner} </p>
                 <p> Time Left: {animal.time_left} </p>
-                <p> Current Bid: ${animal.price} </p>
+                <p> Current Bid: {animal.price} </p>
 
                 <button type="button" onClick={() => {
                     setBid(true);
