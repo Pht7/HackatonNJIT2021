@@ -20,7 +20,7 @@ function updateData(uuid, bid){
 
 export default function Bid(props) {
     const bidRef = useRef(null);
-    const [highestBid, setHighestBid] = useState(0);
+    const [highestBid, setHighestBid] = useState(props.animal.bid);
     //const getValueBid = getData();
 
     function onClickBid(bid) {
@@ -40,15 +40,14 @@ export default function Bid(props) {
             <p>{props.animal.name}</p>
             <p>{props.animal.species}</p>
             <p> Time Left: {props.animal.time}</p>
-            <p> Current Bid: {props.animal.bid}</p>
+            <p> Current Bid: {highestBid} </p>
         </div>
 
             <input ref={bidRef} type="text"/>
-            <button type="button" onClick={() => onClickBid(
-               console.log("FooBar"))
-            }>Bid!
+            <button type="button" onClick={() => onClickBid(bidRef.current.value)}>
+                Bid!
             </button>
-            <a href="./animals"> <button>Go Back </button></a>
+            <a href="./animals"> <button> Go Back </button></a>
         </div>
     );
 }
