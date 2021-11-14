@@ -11,7 +11,6 @@ export default function Bid(props) {
         }
         setHighestBid(bid);
         alert("Bid placed, thank you!");
-        alert(highestBid);
     }
 
     return (
@@ -23,8 +22,7 @@ export default function Bid(props) {
             <p> Current Bid: {props.animal.price}</p>
 
             <input ref={bidRef} type="text"/>
-            <button type="button" onClick={() => onClickBid(bidRef.current.value)}>
-                Bid!
+            <button type="button" onClick={() => onClickBid(bidRef.current.value)}>Bid!
             </button>
         </div>
     );
