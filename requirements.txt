@@ -1,5 +1,4 @@
 Flask
-react-router-dom
 firebase
 react-google-login
 firebase-admin
