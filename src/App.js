@@ -12,7 +12,6 @@ import {
 import AddAnimal from './Components/AddAnimal.js';
 import ZooProfile from './Components/ZooProfile.js';
 import Profile from './Components/Profile';
-import Rat from './Components/Rat';
 
 function App() {
   return (
@@ -24,7 +23,6 @@ function App() {
             <Route path="animals" element={<Animals />} />
             <Route path="about" element={<About />} />
             <Route path="profile" element={<Profile />} />
-            <Route path="rat" element={<Rat />} />
           </Routes>
         </div>
 
@@ -48,11 +46,6 @@ function App() {
         <div class = "link">
           <nav>
             <Link to="profile">Profile</Link>
-          </nav>
-        </div>
-        <div class = "link">
-          <nav>
-            <Link to="rat">Rat</Link>
           </nav>
         </div>
         <Login />
