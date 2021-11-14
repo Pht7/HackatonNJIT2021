@@ -68,8 +68,8 @@ export default function Bid(props) {
             <p> Current Bid: {highestBid} </p>
         </div>
 
-            <input ref={bidRef} type="text"/>
-            <button type="button" onClick={() => onClickBid(bidRef.current.value)}>
+            <input ref={bidRef} type="text" className="bid-input"/>
+            <button type="button" className="bid-button" onClick={() => onClickBid(bidRef.current.value)}>
                 Bid!
             </button>
             <a href="./animals"> <button> Go Back </button></a>

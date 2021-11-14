@@ -10,6 +10,8 @@
 }
 .imageCSS{
     flex-basis: 40%;
+    margin-right: 10%;
+    margin-top: 5%;
 }
 img{
     float: right;
@@ -19,8 +21,42 @@ img{
 .textAuction{
     padding-left: 20px;
     font-size: 20px;
-    color: wheat;
+    color: black;
+    background-color: lightblue;
+    padding-top: 25px;
 }
 .TitleScreen{
     color: wheat;
+}
+
+.top-of-page{
+    width: 75%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    color: white;
+}
+
+.bid-button{
+    background-color: red;
+    color: black;
+    border: none;
+    font-size: 24px;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+.bid-button:hover{
+    opacity: .5;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.bid-button:active{
+    transform: translateY(2px);
+    box-shadow: 0 5px #666;
+}
+.bid-input{
+    width: 25%;
+    font-size: 24px;
+    margin: 5px 10px 22px 10px;
+    border-radius: 8px;
+    border: none;
+    background: #f1f1f1;
 }

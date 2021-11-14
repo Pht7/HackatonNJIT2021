@@ -85,7 +85,7 @@ function Animals() {
 
 function About() {
   return (
-    <div>
+    <div className="about">
       <h1>About us</h1>
       <p>we sell animals virtually</p>
     </div>

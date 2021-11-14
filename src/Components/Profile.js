@@ -50,8 +50,8 @@ function Profile(profileObj) {
                     <p>{animal.name}</p>
                     <p>{animal.species}</p>
                     <p>Current Owner: {animal.desc}</p>
-                    <p>Time Left: {animal.time} </p>
-                    <p> Bid: {animal.bid} </p>
+                    <p>Time Left: {animal.time} hours </p>
+                    <p> Bid: ${animal.bid} </p>
                     </div>
             </div>
             </body>
@@ -60,16 +60,14 @@ function Profile(profileObj) {
     return (
         <>
         <div class="top-of-page">
-            <h1>HELLLLLLO {name}HELLLLLLLLO</h1>
-            <h2>$ Raised</h2>
-            <h3># Animals Helped</h3>
+            <h1>{name}</h1>
+            <h2>$156 Raised</h2>
+            <h2>13 Animals Helped</h2>
         </div>
         <div class="list-of-animals">
             {animal_list.map((animal) => {
                 return animals(animal)
             })}
-            <h1>Animal1</h1>
-            <h2>Animal 2</h2>
         </div>
         </>
     );

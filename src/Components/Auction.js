@@ -158,10 +158,10 @@ function Auction() {
                     <p>{animal.name}</p>
                     <p>{animal.species}</p>
                     <p>Current Owner: {animal.desc}</p>
-                    <p>Time Left: {animal.time} </p>
-                    <p> Bid: {animal.bid} </p>
+                    <p>Time Left: {animal.time} hours </p>
+                    <p> Bid: ${animal.bid} </p>
                     </div>
-                <button type="button" onClick={() => {
+                <button type="button" className="bid-button" onClick={() => {
                     setBid(true);
                     setAnimalObject(animal);
                 }}>
