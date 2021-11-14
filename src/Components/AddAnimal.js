@@ -7,6 +7,8 @@ import { getDatabase, ref, onValue, set} from "firebase/database";
 import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
 import { description } from 'commander';
 import './AddAnimal.css';
+import Animals from '../App.js';
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyBomGokWVsUMjO3UZ3f8Fw9m8dXuEXuG78",
@@ -81,10 +83,12 @@ function AddAnimal() {
         <input type="text" id="description" name="description" ref={descriptionRef}></input>
 
         <label for="picture"><b>Picture:</b></label>
-        <input type="file" id="picture" name="picture" ref={pictureRef}></input>
+        <input type="url" id="picture" name="picture" placeholder="Link:" ref={pictureRef}></input>
 
         <button type="button" className="button-submit" onClick={() => {
             writeData("0",descriptionRef.current.value, nameRef.current.value, pictureRef.current.value, speciesRef.current.value,24,nameRef.current.value);
+            <Animals />
+            closeForm();
         }}><b>Submit</b></button>
         <button type="button" className="button-cancel" onClick={() => {
             closeForm();
