@@ -79,9 +79,6 @@ function Animals() {
     <div>
       <Auction />
       <ZooProfile />
-      <button type="button" class="profile-button" onClick={() => {
-        <Profile />
-      }}>Profile</button>
     </div>
   )
 }
