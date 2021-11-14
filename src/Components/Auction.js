@@ -144,8 +144,8 @@ function writeData(bid, desc, name, photoLocation, species, time, UUID){
 function Auction() {
     const [bid, setBid] = useState(false);
     const [animalObject, setAnimalObject] = useState({});
-    //const animal_list = [animal_one, animal_two, animal_three];
-    const animal_list = getData();
+    const [animalList, setAnimalList] = useState(getData());
+    // const animalList = [animal_one, animal_two, animal_three];
     //writeData(75,"Rat Trap Music", "Nemo","pornhub.com","Clownfish",40,"BIGFATTYRATTY")
     function animals(animal) {
         return(
@@ -178,7 +178,7 @@ function Auction() {
 
             {bid === false ? (
                 <div className="rvView">
-                    {animal_list.map((animal) => {
+                    {animalList.map((animal) => {
                         return animals(animal)
                     })}
                 </div>
