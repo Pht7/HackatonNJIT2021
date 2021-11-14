@@ -38,9 +38,14 @@ function writeData(name, species, donation, weight, UUID){
         donation: donation,
         weight: weight
     });
+
 }
 
-export default function Auction() {
+
+function Auction() {
+    const [bid, setBid] = useState(false);
+    const [animalObject, setAnimalObject] = useState({});
+
     //sample data
     //getData();
     console.log("begin Test")
@@ -68,19 +73,14 @@ export default function Auction() {
     };
     const animal_list = [animal_one, animal_two, animal_three];
 
-
-    const [bid, setBid] = useState(false);
-    const [animalObject, setAnimalObject] = useState({});
-
-
     function animals(animal) {
         return(
             <div>
                 <p> {animal.photo_url} </p>
-                <h3> {animal.type} </h3>
+                <h2> {animal.type} </h2>
                 <p> Current Owner: {animal.current_owner} </p>
                 <p> Time Left: {animal.time_left} </p>
-                <p> Current Bid: {animal.price} </p>
+                <p> Current Bid: ${animal.price} </p>
 
                 <button type="button" onClick={() => {
                     setBid(true);
@@ -106,3 +106,5 @@ export default function Auction() {
         </div>
   );
 }
+
+export default Auction;
