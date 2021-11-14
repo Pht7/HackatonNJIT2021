@@ -7,6 +7,8 @@ function Login() {
     const onSuccess = ( res ) => {
       console.log('[Login Success] currentUser:', res.profileObj);
       localStorage.setItem('name', res.profileObj.name);
+      localStorage.setItem('price', '$156 Raised');
+      localStorage.setItem('helped', '13 Animals Helped');
     };
 
     const onFailure = (res ) => {

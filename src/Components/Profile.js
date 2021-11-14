@@ -39,6 +39,8 @@ function getData(){
 function Profile(profileObj) {
     const animal_list = getData();
     let name = localStorage.getItem('name');
+    let price = localStorage.getItem('price');
+    let helped = localStorage.getItem('helped');
         function animals(animal) {
         return(
             <body>
@@ -61,8 +63,8 @@ function Profile(profileObj) {
         <>
         <div class="top-of-page">
             <h1>{name}</h1>
-            <h2>$156 Raised</h2>
-            <h2>13 Animals Helped</h2>
+            <h2>{price}</h2>
+            <h2>{helped}</h2>
         </div>
         <div class="list-of-animals">
             {animal_list.map((animal) => {

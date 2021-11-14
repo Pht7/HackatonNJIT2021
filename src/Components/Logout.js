@@ -7,6 +7,8 @@ function Logout() {
     const onSuccess = () => {
         alert('Logout Successful');
         localStorage.removeItem('name');
+        localStorage.removeItem('helped');
+        localStorage.removeItem('price');
     };
 
     return (
