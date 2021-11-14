@@ -79,13 +79,8 @@ function AddAnimal() {
         <label for="picture"><b>Picture:</b></label>
         <input type="file" id="picture" name="picture" ref={pictureRef}></input>
 
-<<<<<<< HEAD
         <button type="button" class="button-submit" onClick={() => {
             writeData(nameRef.current.value, speciesRef.current.value, 0, weightRef.current.value, "12345");
-=======
-        <button type="button" className="button-submit" onClick={() => {
-            writeData(nameRef.current.value, speciesRef.current.value, "0", weightRef.current.value, "12345");
->>>>>>> c684765db6a3c0ed2113783549da2862a5bd3c3f
         }}><b>Submit</b></button>
         <button type="button" className="button-cancel" onClick={() => {
             closeForm();
