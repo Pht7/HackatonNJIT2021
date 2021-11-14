@@ -3,6 +3,7 @@ import './App.css';
 import Login from './Login.js';
 import Logout from './Logout.js';
 import Auction from "./Components/Auction";
+import AddAnimal from './Components/AddAnimal.js';
 
 function App() {
   return (
